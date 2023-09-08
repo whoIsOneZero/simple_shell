@@ -39,7 +39,8 @@ display the next prompt until the executed command finishes executing.
 
 ### 8.Displaying Output
 If the executed command generates output, such as text or data, the shell 
-exhibits this output in the terminal for the user's viewing.
+exhibits this output in the terminal for the user's viewing, using the
+write command.
 
 ### 9.Returning the Prompt
 Following the completion of the executed command, the shell reverts to its
