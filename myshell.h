@@ -11,5 +11,6 @@
 
 /*---> FUNCTION PROTOTYPES <---*/
 void write_out(const char *the_msg);
+void prompt_user(void);
 
 #endif /*MYSHELL_HEADER*/

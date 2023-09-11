@@ -3,7 +3,7 @@
  * main - simple shell entery point
  * @ac:number of arguments
  * @av: array of arguments
- * @env: enviroment variables 
+ * @env: enviroment variables
  */
 
 int main(int ac, char **av, char **env)
@@ -18,7 +18,7 @@ int main(int ac, char **av, char **env)
 	(void)av;
 	while (1)
 	{
-		printf("#cisfun$ ");
+		prompt_user();
 		fflush(stdout);
 
 		bytes_read = getline(&command, &bufsize, stdin);

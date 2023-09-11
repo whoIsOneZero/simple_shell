@@ -9,5 +9,17 @@
 
 void write_out(const char *the_msg)
 {
-	write(STDOUT_FILENO, the_msg, strlen(the_msg));
+	const char *this_char = the_msg;
+
+	if (the_msg == NULL) /*Handle NULL case*/
+	{
+		write(STDOUT_FILENO, "(null)", 7);
+		return;
+	}
+	while (*this_char != '\0')
+	{
+		/*Print each char iteratively*/
+		write(1, this_char, 1);
+		this_char++;
+	}
 }
