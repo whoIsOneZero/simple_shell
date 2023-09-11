@@ -22,7 +22,7 @@ char *get_cmd(void)
 		/* Check if getline returns -1 due to EOF (Ctrl+D)*/
 		write(1, "\n", 1);
 		fflush(stdin);
-		return NULL;
+		return (NULL);
 	}
 
 	if (bytes_read > 0 && cmd[bytes_read - 1] == '\n')
