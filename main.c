@@ -9,8 +9,6 @@
 int main(int ac, char **av, char **env)
 {
 	char *command, *argv[3];
-	size_t bufsize = 0;
-	ssize_t bytes_read;
 	pid_t pid;
 
 
@@ -18,25 +16,11 @@ int main(int ac, char **av, char **env)
 	(void)av;
 	while (1)
 	{
-		prompt_user();
-		fflush(stdout);
-
-		bytes_read = getline(&command, &bufsize, stdin);
-
-
-		if (bytes_read == -1)
+		command = get_cmd();
+		if (comand == NULL)
 		{
-			/* Check if getline returns -1 due to EOF (Ctrl+D)*/
-			putchar('\n');
-			fflush(stdin);
 			break;
 		}
-
-		if (bytes_read > 0 && command[bytes_read - 1] == '\n')
-		{
-			command[bytes_read - 1] = '\0';
-		}
-
 		argv[0] = command;
 		argv[1] = "/usr/";
 		argv[2] = NULL;
