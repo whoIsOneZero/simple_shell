@@ -13,7 +13,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 
 	if (pid == -1)
 	{
-		perror("Error:");
+		perror("Error");
 		return (-1);
 	}
 
@@ -21,7 +21,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 	{
 		if (execve(prog, args, env) == -1)
 		{
-			perror("Error:");
+			perror("Error");
 			return (-1);
 		}
 		exit(EXIT_SUCCESS);
