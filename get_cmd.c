@@ -25,6 +25,7 @@ char *get_cmd(void)
 		return (NULL);
 	}
 
+	/*Replace new line with null terminating charac*/
 	if (bytes_read > 0 && cmd[bytes_read - 1] == '\n')
 	{
 		cmd[bytes_read - 1] = '\0';

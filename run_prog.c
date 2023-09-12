@@ -9,16 +9,18 @@
  */
 int run_prog(const char *prog, char *const args[], char *const env[])
 {
+	/*Create child process and run the command in it*/
 	pid_t pid = fork();
 
-	if (pid == -1)
+	if (pid == -1) /*fork() failed*/
 	{
 		perror("Error");
 		return (-1);
 	}
 
-	if (pid == 0)
+	if (pid == 0) /*child process created*/
 	{
+		/*Execute the specified program*/
 		if (execve(prog, args, env) == -1)
 		{
 			perror("Error");
@@ -27,6 +29,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 		exit(EXIT_SUCCESS);
 	}
 
+	/*Parent should wait for child process to complete exe*/
 	wait(NULL);
 
 	return (0);
