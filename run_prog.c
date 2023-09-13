@@ -9,6 +9,13 @@
  */
 int run_prog(const char *prog, char *const args[], char *const env[])
 {
+	struct stat st;
+
+	if (stat(prog, &st) != 0)
+        {
+		perror("Error");
+		return (0);
+        }
 	/*Create child process and run the command in it*/
 	pid_t pid = fork();
 

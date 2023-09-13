@@ -8,6 +8,10 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
+extern char **environ;
 
 /*---> FUNCTION PROTOTYPES <---*/
 void write_out(const char *the_msg);
