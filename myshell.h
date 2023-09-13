@@ -16,6 +16,7 @@ extern char **environ;
 
 /*---> CONSTANTS <---*/
 #define MAX_ARGS 64
+#define MAX_TOKENS 64
 
 /*---> FUNCTION PROTOTYPES <---*/
 void write_out(const char *the_msg);
