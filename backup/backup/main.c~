@@ -1,0 +1,56 @@
+#include "myshell.h"
+
+
+int main(int ac, char **av, char **env) {
+    char *command = NULL;
+    size_t bufsize = 0;
+    pid_t pid;
+
+    while (1) {
+        printf("$ ");
+        fflush(stdout);
+	int i;
+
+        ssize_t bytes_read = getline(&command, &bufsize, stdin);
+
+
+        if (bytes_read == -1) {
+            /* Check if getline returns -1 due to EOF (Ctrl+D)*/
+            if (feof(stdin)) {
+                printf("\nEOF detected. Exiting...\n");
+            } else {
+                printf("Error reading input. Exiting...\n");
+            }
+            break;
+        }
+
+	char *ptr = strchr(command , '\n');
+	if (ptr)
+	{
+		*ptr = '\0';
+	}
+
+	char *argv[] = {command, "-l", "/usr/", NULL};
+
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("Error:");
+		return (1);
+	}
+
+        /* handle the entered command on the next line */
+	if( pid == 0)
+	{
+		if (execve(argv[0], argv, env) == -1)
+		{
+			perror("Error:");
+		}
+	}
+    }
+
+
+    free(command);
+
+    return 0;
+}

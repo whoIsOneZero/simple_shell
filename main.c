@@ -1,59 +1,38 @@
 #include "myshell.h"
 /**
  * main - simple shell entery point
- * @ac:number of arguments
- * @av: array of arguments
- * @env: enviroment variables
+ * @ac: number of arguments
+ * @av: an array of arguments
+ * @env: an array enviroment variables
+ *
+ * Return: 0 (success), -1 (failure)
  */
 
 int main(int ac, char **av, char **env)
 {
 	char *command, *argv[3];
-	size_t bufsize = 0;
-	ssize_t bytes_read;
 	pid_t pid;
 
-	(void)ac;
+	(void)ac; /*Suppress "unused parameter" warning*/
 	(void)av;
 	while (1)
 	{
-		printf("#cisfun$ ");
-		fflush(stdout);
-		bytes_read = getline(&command, &bufsize, stdin);
-		if (bytes_read == -1)
+		command = get_cmd(); /*Get command from the str*/
+		if (command == NULL) /*Shell exited: Ctrl+D*/
 		{
-			putchar('\n');
 			break;
-		}
-
-		if (bytes_read > 0 && command[bytes_read - 1] == '\n')
-		{
-			command[bytes_read - 1] = '\0';
 		}
 
 		argv[0] = command;
 		argv[1] = "/usr/";
 		argv[2] = NULL;
 
-		pid = fork();
-		if (pid == -1)
+		if (run_prog(argv[0], argv, env) == -1)
 		{
-			perror("Error:");
+			free(command);
 			return (1);
 		}
-		wait(NULL);
-		/* handle the entered command on the next line */
-		if (pid == 0)
-		{
-			if (execve(argv[0], argv, env) == -1)
-			{
-				perror("Error:");
-			}
-			break;
-		}
-	}
-
 	free(command);
-
+	}
 	return (0);
 }
