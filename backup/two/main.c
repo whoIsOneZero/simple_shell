@@ -7,11 +7,11 @@
  *
  * Return: 0 (success), -1 (failure)
  */
+
 int main(int ac, char **av, char **env)
 {
-	char *command, *argv[MAX_ARGS], *tokens[MAX_TOKENS];
+	char *command, *argv[3];
 	pid_t pid;
-	int i = 0;
 
 	(void)ac; /*Suppress "unused parameter" warning*/
 	(void)av;
@@ -23,16 +23,9 @@ int main(int ac, char **av, char **env)
 			break;
 		}
 
-		splitter(command, " ", tokens, MAX_TOKENS);
-
-		/*Set last element to NULL for proper processing*/
-		while (i < MAX_ARGS - 1 && tokens[i] != NULL)
-		{
-			argv[i] = tokens[i];
-			i++;
-		}
-		argv[i] = NULL;
-
+		argv[0] = command;
+		argv[1] = "/usr/";
+		argv[2] = NULL;
 
 		if (run_prog(argv[0], argv, env) == -1)
 		{
