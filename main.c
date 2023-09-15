@@ -19,10 +19,10 @@ int main(int ac, char **av, char **env)
 	{
 		i = 0;
 		command = get_cmd(); /*Get command from the str*/
-		if (command == NULL) /*Shell exited: Ctrl+D*/
-		{
-			break;
-		}
+		if (command == NULL || _strcmp(command,"exit") == 0) /*Shell exited: Ctrl+D*/
+				break;
+		if (strcmp(command,"") == 0)
+			continue;
 
 		splitter(command, " ", tokens, MAX_TOKENS);
 
@@ -51,13 +51,6 @@ int main(int ac, char **av, char **env)
 
 
 	}
+
 	return (0);
 }
-
-
-
-
-
-
-
-

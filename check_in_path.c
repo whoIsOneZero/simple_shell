@@ -32,8 +32,8 @@ int check_in_path(char *prog)
 	}
 	for(;path_head != NULL; path_head = path_head ->next)
 	{
-		full_path = malloc(strlen(path_head->str) + strlen("/")
-				   + strlen(prog) + 1);
+		full_path = malloc(_strlen(path_head->str) + _strlen("/")
+				   + _strlen(prog) + 1);
 		strcpy(full_path, path_head->str);
 
 		strcat(full_path, "/");

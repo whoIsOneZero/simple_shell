@@ -50,5 +50,8 @@ list_t *add_node_end(list_t **head, const char *str);
 void free_list(list_t *head);
 size_t print_list(const list_t *h);
 
+/* string.h implemetation */
+int _strlen(char *);
+int _strcmp(char *, char *);
 
 #endif /*MYSHELL_HEADER*/
