@@ -10,12 +10,18 @@
 int run_prog(const char *prog, char *const args[], char *const env[])
 {
 	struct stat st;
+	char* full_prog;
 
+	full_prog = strdup(prog);
 	if (stat(prog, &st) != 0)
         {
-		perror("Error");
-		return (0);
-        }
+		if (check_in_path(full_prog) != 0)
+		{
+
+			perror("Error");
+			return (0);
+		}
+	}
 	/*Create child process and run the command in it*/
 	pid_t pid = fork();
 
@@ -28,7 +34,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 	if (pid == 0) /*child process created*/
 	{
 		/*Execute the specified program*/
-		if (execve(prog, args, env) == -1)
+		if (execve(full_prog, args, env) == -1)
 		{
 			perror("Error");
 			return (-1);
