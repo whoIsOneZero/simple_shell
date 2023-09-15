@@ -22,7 +22,6 @@ int splitter(char *cmd, const char *delim, char *tokens[], int max_tokens)
 		/*Store the token in the array*/
 		tokens[num] = part;
 		num++;
-
 		/*Continue tokenization*/
 		part = strtok(NULL, delim);
 	}

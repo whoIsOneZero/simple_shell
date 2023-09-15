@@ -11,12 +11,13 @@ int main(int ac, char **av, char **env)
 {
 	char *command, *argv[MAX_ARGS], *tokens[MAX_TOKENS];
 	pid_t pid;
-	int i = 0;
+	int i;
 
 	(void)ac; /*Suppress "unused parameter" warning*/
 	(void)av;
 	while (1)
 	{
+		i = 0;
 		command = get_cmd(); /*Get command from the str*/
 		if (command == NULL) /*Shell exited: Ctrl+D*/
 		{
@@ -40,6 +41,16 @@ int main(int ac, char **av, char **env)
 			return (1);
 		}
 	free(command);
+
+	
 	}
 	return (0);
 }
+
+
+
+
+
+
+
+

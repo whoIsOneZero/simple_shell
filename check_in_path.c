@@ -52,7 +52,7 @@ int check_in_path(char *prog)
 	}
 	free(path);
 	free_list(path_head);
-	
+
 	return (-1);
 
 }
