@@ -41,8 +41,15 @@ int main(int ac, char **av, char **env)
 			return (1);
 		}
 	free(command);
+	while (i >= 0)
+	{
 
-	
+		argv[i] = NULL;
+		tokens[i] = NULL;
+		i--;
+	}
+
+
 	}
 	return (0);
 }
