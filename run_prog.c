@@ -10,11 +10,12 @@
 int run_prog(const char *prog, char *const args[], char *const env[])
 {
 	struct stat st;
-	char* full_prog;
+	char *full_prog;
+	pid_t pid;
 
 	full_prog = strdup(prog);
 	if (stat(prog, &st) != 0)
-        {
+	{
 		if (check_in_path(full_prog) != 0)
 		{
 
@@ -23,7 +24,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 		}
 	}
 	/*Create child process and run the command in it*/
-	pid_t pid = fork();
+	pid = fork();
 
 	if (pid == -1) /*fork() failed*/
 	{

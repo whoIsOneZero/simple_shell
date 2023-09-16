@@ -10,7 +10,7 @@
 int main(int ac, char **av, char **env)
 {
 	char *command, *argv[MAX_ARGS], *tokens[MAX_TOKENS];
-	pid_t pid;
+	/*pid_t pid;*/ /*Unused variable*/
 	int i;
 
 	(void)ac; /*Suppress "unused parameter" warning*/
@@ -19,9 +19,9 @@ int main(int ac, char **av, char **env)
 	{
 		i = 0;
 		command = get_cmd(); /*Get command from the str*/
-		if (command == NULL || _strcmp(command,"exit") == 0) /*Shell exited: Ctrl+D*/
-				break;
-		if (strcmp(command,"") == 0)
+		if (command == NULL || _strcmp(command, "exit") == 0) /* exited: Ctrl+D*/
+			break;
+		if (strcmp(command, "") == 0)
 			continue;
 
 		splitter(command, " ", tokens, MAX_TOKENS);
@@ -34,7 +34,6 @@ int main(int ac, char **av, char **env)
 		}
 		argv[i] = NULL;
 
-
 		if (run_prog(argv[0], argv, env) == -1)
 		{
 			free(command);
@@ -43,14 +42,11 @@ int main(int ac, char **av, char **env)
 	free(command);
 	while (i >= 0)
 	{
-
 		argv[i] = NULL;
 		tokens[i] = NULL;
 		i--;
 	}
 
-
 	}
-
 	return (0);
 }

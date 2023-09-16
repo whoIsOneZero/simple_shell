@@ -10,14 +10,14 @@ char *_getenv(const char *name)
 {
 	size_t var_len;
 	char *equals;
+	int i;
 
 	if (name == NULL || environ == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 
-
-	for (int i = 0; environ[i] != NULL; i++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
 		equals = strchr(environ[i], '=');
 
@@ -33,5 +33,5 @@ char *_getenv(const char *name)
 	}
 
 	/* If the environment variable is not found, return NULL */
-	return NULL;
+	return (NULL);
 }

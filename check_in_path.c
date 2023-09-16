@@ -1,26 +1,23 @@
 #include "myshell.h"
 
 /**
- *
+ * check_in_path - checks whether the program exists in the PATH env
+ * @prog: the program to check for
+ * Return: 0 (proram found), or -1 otherwise
  */
-
 
 int check_in_path(char *prog)
 {
-
-
 	list_t *path_head;
-	char *path , *token,*full_path;
+	char *path, *token, *full_path;
 	struct stat st;
 
-
-	path =strdup(_getenv("PATH"));
+	path = strdup(_getenv("PATH"));
 	path_head = malloc(sizeof(list_t));
 	if (path != NULL)
 	{
-
 		token = strtok(path, ":");
-		path_head -> str = strdup(token);
+		path_head->str = strdup(token);
 		token = strtok(NULL, ":");
 
 		while (token != NULL)
@@ -30,7 +27,7 @@ int check_in_path(char *prog)
 		}
 
 	}
-	for(;path_head != NULL; path_head = path_head ->next)
+	for (; path_head != NULL; path_head = path_head->next)
 	{
 		full_path = malloc(_strlen(path_head->str) + _strlen("/")
 				   + _strlen(prog) + 1);
@@ -41,18 +38,14 @@ int check_in_path(char *prog)
 
 		if (stat(full_path, &st) == 0)
 		{
-			strcpy(prog,full_path);
-
+			strcpy(prog, full_path);
 			return (0);
 
 		}
 	free(full_path);
-
-
 	}
 	free(path);
 	free_list(path_head);
 
 	return (-1);
-
 }
