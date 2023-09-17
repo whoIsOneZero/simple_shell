@@ -20,6 +20,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 		{
 
 			perror("Error");
+			free(full_prog);
 			return (0);
 		}
 	}
@@ -29,6 +30,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 	if (pid == -1) /*fork() failed*/
 	{
 		perror("Error");
+		free(full_prog);
 		return (-1);
 	}
 
@@ -38,13 +40,15 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 		if (execve(full_prog, args, env) == -1)
 		{
 			perror("Error");
+			free(full_prog);
 			return (-1);
 		}
+		free(full_prog);
 		exit(EXIT_SUCCESS);
 	}
 
-	/*Parent should wait for child process to complete exe*/
+	/*Parent should wait for child process to complete exit*/
 	wait(NULL);
-
+	free(full_prog);
 	return (0);
 }

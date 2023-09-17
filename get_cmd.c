@@ -31,6 +31,5 @@ char *get_cmd(void)
 	{
 		cmd[bytes_read - 1] = '\0';
 	}
-
 	return (cmd);
 }

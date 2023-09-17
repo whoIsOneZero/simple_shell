@@ -8,16 +8,18 @@
 
 int check_in_path(char *prog)
 {
-	list_t *path_head;
+	list_t *path_head,*temp;
 	char *path, *token, *full_path;
 	struct stat st;
 
 	path = strdup(_getenv("PATH"));
 	path_head = malloc(sizeof(list_t));
+
 	if (path != NULL)
 	{
 		token = strtok(path, ":");
 		path_head->str = strdup(token);
+		path_head-> next = NULL;
 		token = strtok(NULL, ":");
 
 		while (token != NULL)
@@ -27,11 +29,12 @@ int check_in_path(char *prog)
 		}
 
 	}
-	for (; path_head != NULL; path_head = path_head->next)
+	temp =	path_head ;
+	for (; temp != NULL; temp = temp->next)
 	{
 		full_path = malloc(_strlen(path_head->str) + _strlen("/")
 				   + _strlen(prog) + 1);
-		strcpy(full_path, path_head->str);
+		strcpy(full_path, temp ->str);
 
 		strcat(full_path, "/");
 		strcat(full_path, prog);
@@ -39,13 +42,19 @@ int check_in_path(char *prog)
 		if (stat(full_path, &st) == 0)
 		{
 			strcpy(prog, full_path);
+			free(full_path);
+			free(path);
+			free(token);
+			free_list(path_head);
+
 			return (0);
 
 		}
-	free(full_path);
+		free(full_path);
 	}
 	free(path);
 	free_list(path_head);
+	free(token);
 
 	return (-1);
 }

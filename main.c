@@ -18,11 +18,16 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		i = 0;
+
 		command = get_cmd(); /*Get command from the str*/
 		if (command == NULL || _strcmp(command, "exit") == 0) /* exited: Ctrl+D*/
 			break;
 		if (_strcmp(command, "") == 0)
+		{
+			free(command);
 			continue;
+
+		}
 
 		splitter(command, " ", tokens, MAX_TOKENS);
 
@@ -39,14 +44,17 @@ int main(int ac, char **av, char **env)
 			free(command);
 			return (1);
 		}
-	free(command);
-	while (i >= 0)
-	{
-		argv[i] = NULL;
-		tokens[i] = NULL;
-		i--;
-	}
+		while (i >= 0)
+		{
+			argv[i] = NULL;
+			tokens[i] = NULL;
+			i--;
+		}
+		free(command);
 
 	}
+
+	free(command);
+
 	return (0);
 }
