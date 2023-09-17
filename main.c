@@ -21,7 +21,7 @@ int main(int ac, char **av, char **env)
 		command = get_cmd(); /*Get command from the str*/
 		if (command == NULL || _strcmp(command, "exit") == 0) /* exited: Ctrl+D*/
 			break;
-		if (strcmp(command, "") == 0)
+		if (_strcmp(command, "") == 0)
 			continue;
 
 		splitter(command, " ", tokens, MAX_TOKENS);
