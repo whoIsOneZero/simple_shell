@@ -18,7 +18,6 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 	{
 		if (check_in_path(full_prog) != 0)
 		{
-
 			perror("Error");
 			free(full_prog);
 			return (0);
