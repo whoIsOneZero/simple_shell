@@ -36,7 +36,7 @@ extern char **environ;
 
 /*---> FUNCTION PROTOTYPES <---*/
 void write_out(const char *the_msg);
-void prompt_user(void);
+char* prompt_user(void)
 char *get_cmd(void);
 int run_prog(const char *prog, char *const args[], char *const env[]);
 int splitter(char *cmd, const char *delim, char *tokens[], int max_tokens);

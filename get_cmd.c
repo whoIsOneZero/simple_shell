@@ -1,5 +1,4 @@
 #include "myshell.h"
-
 /**
  * get_cmd - reads the string (command) from stdin
  *
@@ -11,8 +10,9 @@ char *get_cmd(void)
 	char *cmd = NULL; /*command*/
 	size_t bufsize = 0; /*The size of the buffer pointed to*/
 	ssize_t bytes_read; /*Num of chars read from stdin including \n*/
+	char *prompt = NULL;
 
-	prompt_user();
+	prompt = prompt_user();
 	fflush(stdout);
 
 	bytes_read = getline(&cmd, &bufsize, stdin);
@@ -30,6 +30,8 @@ char *get_cmd(void)
 	{
 		cmd[bytes_read - 1] = '\0';
 	}
+	free(cmd); /*Possible fix*/
+	free(prompt);
 
 	return (cmd);
 }

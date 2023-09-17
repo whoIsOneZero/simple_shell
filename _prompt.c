@@ -3,7 +3,11 @@
 /**
  * prompt_user - displays  prompt to receive user input from terminal
  */
-void prompt_user(void)
+char* prompt_user(void)
 {
-	write_out("#cisfun$ ");
+	char *prompt = "#cisfun$ ";
+
+	write_out(prompt);
+
+	return(prompt);
 }
