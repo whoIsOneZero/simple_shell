@@ -21,7 +21,8 @@ char *get_cmd(void)
 	{
 		/* Check if getline returns -1 due to EOF (Ctrl+D)*/
 		write(1, "\n", 1);
-		fflush(stdin);
+		free(cmd);
+		/*fflush(stdin);*/
 		return (NULL);
 	}
 
