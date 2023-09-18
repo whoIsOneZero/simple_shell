@@ -10,11 +10,11 @@
 int main(int ac, char **av, char **env)
 {
 	char *command, *argv[MAX_ARGS], *tokens[MAX_TOKENS];
-	/*pid_t pid;*/ /*Unused variable*/
 	int i;
 
 	(void)ac; /*Suppress "unused parameter" warning*/
 	(void)av;
+	(void)argv;
 	while (1)
 	{
 		i = 0;
@@ -26,7 +26,6 @@ int main(int ac, char **av, char **env)
 		{
 			free(command);
 			continue;
-
 		}
 
 		splitter(command, " ", tokens, MAX_TOKENS);
@@ -39,7 +38,7 @@ int main(int ac, char **av, char **env)
 		}
 		argv[i] = NULL;
 
-		if (run_prog(argv[0], argv, env) == -1)
+		if (run_prog(tokens[0], tokens, env) == -1)
 		{
 			free(command);
 			return (1);

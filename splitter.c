@@ -25,6 +25,5 @@ int splitter(char *cmd, const char *delim, char *tokens[], int max_tokens)
 		/*Continue tokenization*/
 		part = strtok(NULL, delim);
 	}
-	free(part);
 	return (num);
 }
