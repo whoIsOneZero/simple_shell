@@ -20,16 +20,14 @@ int main(int ac, char **av, char **env)
 		i = 0;
 
 		command = get_cmd(); /*Get command from the str*/
-		if (command == NULL || _strcmp(command, "exit") == 0) /* exited: Ctrl+D*/
+		if (command == NULL || _strcmp(command, "exit") == 0)/*exited:Ctrl+D*/
 			break;
 		if (_strcmp(command, "") == 0)
 		{
 			free(command);
 			continue;
 		}
-
 		splitter(command, " ", tokens, MAX_TOKENS);
-
 		/*Set last element to NULL for proper processing*/
 		while (i < MAX_ARGS - 1 && tokens[i] != NULL)
 		{
@@ -37,7 +35,6 @@ int main(int ac, char **av, char **env)
 			i++;
 		}
 		argv[i] = NULL;
-
 		if (run_prog(tokens[0], tokens, env) == -1)
 		{
 			free(command);
@@ -48,12 +45,8 @@ int main(int ac, char **av, char **env)
 			argv[i] = NULL;
 			tokens[i] = NULL;
 			i--;
-		}
-		free(command);
+		} free(command);
 
-	}
-
-	free(command);
-
+	} free(command);
 	return (0);
 }

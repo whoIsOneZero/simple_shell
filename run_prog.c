@@ -32,7 +32,6 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 		free(full_prog);
 		return (-1);
 	}
-
 	if (pid == 0) /*child process created*/
 	{
 		/*Execute the specified program*/
