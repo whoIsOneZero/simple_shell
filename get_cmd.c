@@ -15,7 +15,7 @@ char *get_cmd(void)
 	prompt_user();
 	fflush(stdout);
 	bytes_read = getline(&cmd, &bufsize, stdin);
-	
+
 	if (bytes_read == -1)
 	{
 		/* Check if getline returns -1 due to EOF (Ctrl+D)*/

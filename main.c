@@ -5,7 +5,7 @@
  * @av: an array of arguments
  * @env: an array enviroment variables
  *
- * Return: 0 (success), -1 (failure)
+ * Return: 0 (success), or [-1] (failure)
  */
 int main(int ac, char **av, char **env)
 {
@@ -29,24 +29,23 @@ int main(int ac, char **av, char **env)
 		}
 		splitter(command, " ", tokens, MAX_TOKENS);
 		/*Set last element to NULL for proper processing*/
-/**		while (i < MAX_ARGS - 1 && tokens[i] != NULL)
-		{
-		argv[i] = tokens[i];
-		i++;
-		}
-		argv[i] = NULL;
-*/
+
+/* while (i < MAX_ARGS  -1 && tokens[i] != NULL)*/
+/* {*/
+/* argv[i] = tokens[i];*/
+/* i++;*/
+/* }*/
+/* argv[i] = NULL;*/
+
 		if (run_prog(tokens[0], tokens, env) == -1)
 		{
-
 			free(command);
 			return (1);
 		}
-		for(i=0; tokens[i]; i++)
+		for (i = 0; tokens[i]; i++)
 		{
 			/**	free(tokens[i]); */
-		}
-		free(command);
+		} free(command);
 
 	} free(command);
 	return (0);

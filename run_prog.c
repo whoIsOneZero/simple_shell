@@ -12,15 +12,15 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 	struct stat st;
 	char *full_prog;
 	pid_t pid;
-	full_prog = malloc(strlen(prog)+1);
-	strcpy(full_prog ,prog);
+
+	full_prog = malloc(strlen(prog) + 1);
+	strcpy(full_prog, prog);
 	if (stat(prog, &st) != 0)
 	{
 		if (check_in_path(full_prog) != 0)
 		{
 			free(full_prog);
 			perror("Error");
-
 			return (0);
 		}
 	}
@@ -41,8 +41,7 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 			perror("Error");
 			free(full_prog);
 			return (-1);
-		}
-		free(full_prog);
+		} free(full_prog);
 		exit(EXIT_SUCCESS);
 	}
 

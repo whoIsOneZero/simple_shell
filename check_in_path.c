@@ -42,8 +42,7 @@ int check_in_path(char *prog)
 			return (0);
 		}
 		free(full_path);
-	}
-	free(path);
+	} free(path);
 	free_list(path_head);
 	free(token);
 	return (-1);
