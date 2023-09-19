@@ -2,39 +2,52 @@
 
 /**
  * add_node_end - adds a new node at the end of a linked list
- * @head: double pointer to the list_t list
- * @str: new string to add in the node
+ * @head: a double pointer to the current list head
+ * @str:  pointer to the string to be added (new node)
  *
- * Return: the address of the new element, or NULL if it fails
+ * Return: pointer to the new (last) node (SUCCESS)
+ * or NULL (FAIL)
  */
-
-
 
 list_t *add_node_end(list_t **head, const char *str)
 {
+	list_t *end, *ptr;
+	unsigned int len = 0;
+	size_t size;
 
-	list_t *new;
-	list_t *temp = *head;
+	ptr = *head; /*so that you can traverse the linked list*/
 
+	while (str[len])
+		len++;
 
-	new = malloc(sizeof(list_t));
-	if (!new)
+	size = list_len(*head);
+	end = malloc(size);
+	if (!end) /*Mem. alloc. failed*/
 		return (NULL);
 
-	new->str = strdup(str);
+	/*Initialize the new node*/
+	end->str = strdup(str);
+	end->len = len;
+	end->next = NULL; /*It's a lone node at this point*/
 
-	new->next = NULL;
-
+	/*Check if linked list is empty*/
+	/*Add new node to the beginning (end) if empty*/
 	if (*head == NULL)
 	{
-		*head = new;
-		return (new);
+		*head = end;
+		return (end);
 	}
 
-	while (temp->next)
-		temp = temp->next;
+	/**
+	 * Traverse the linked list till the link (next) part...
+	 * ... points to null (end of linked list)
+	 */
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
 
-	temp->next = new;
+	ptr->next = end;
 
-	return (new);
+	return (end);
 }

@@ -1,34 +1,27 @@
 #include "myshell.h"
-
 /**
- * print_list - prints all elemnts of list_t list
- * @h: ponter to the list
- * Return: number of nodes
+ * print_list - prints all the elements of a list of type 'list_t'
+ * @h: a pointer to the head of the list
  *
+ * Return: the number of nodes in the list
  */
-
-
-
-
 
 size_t print_list(const list_t *h)
 {
-	size_t size = 0;
+	size_t count = 0;
 
-	while (h)
+	if (h == NULL)
+		return (0);
+
+	while (h != NULL)
 	{
-		size += 1;
-		if (!h->str)
+		if (!(h->str)) /*Null*/
 			printf("[0] (nil)\n");
 		else
-			printf("[0] %s\n",  h->str);
+			printf("[%u] %s\n", h->len, h->str);
 		h = h->next;
-
-
+		count++;
 	}
 
-	return (size);
-
-
-
+	return (count);
 }
