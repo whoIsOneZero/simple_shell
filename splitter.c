@@ -17,13 +17,16 @@ int splitter(char *cmd, const char *delim, char *tokens[], int max_tokens)
 	/*Tokenize the input string*/
 	part = strtok(cmd, delim);
 
-	while (part != NULL && num < max_tokens)
+	while (part != NULL && num < max_tokens - 1)
 	{
+
 		/*Store the token in the array*/
 		tokens[num] = part;
 		num++;
 		/*Continue tokenization*/
 		part = strtok(NULL, delim);
 	}
+	tokens[num] = NULL;
+
 	return (num);
 }

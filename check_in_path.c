@@ -23,7 +23,8 @@ int check_in_path(char *prog)
 			add_node_end(&path_head, token);
 			token = strtok(NULL, ":");
 		}
-	} temp = path_head;
+	}
+	temp = path_head;
 	for (; temp != NULL; temp = temp->next)
 	{
 		full_path = malloc(_strlen(path_head->str) + _strlen("/")

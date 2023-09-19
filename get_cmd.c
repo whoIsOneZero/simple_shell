@@ -9,14 +9,13 @@
 char *get_cmd(void)
 {
 	char *cmd = NULL; /*command*/
-	size_t bufsize = 0; /*The size of the buffer pointed to*/
+	size_t bufsize; /*The size of the buffer pointed to*/
 	ssize_t bytes_read; /*Num of chars read from stdin including \n*/
 
 	prompt_user();
 	fflush(stdout);
-
 	bytes_read = getline(&cmd, &bufsize, stdin);
-
+	
 	if (bytes_read == -1)
 	{
 		/* Check if getline returns -1 due to EOF (Ctrl+D)*/
