@@ -7,21 +7,20 @@
  * @env: environment variables
  * Return: 0 (success), -1 (failure)
  */
-int run_prog(const char *prog, char *const args[], char *const env[])
+int run_prog(char *prog, char *const args[], char *const env[])
 {
 	struct stat st;
 	char *full_prog;
 	pid_t pid;
 
-	full_prog = malloc(strlen(prog) + 1);
-	strcpy(full_prog, prog);
+	full_prog = malloc(sizeof(char) * (_strlen(prog) + 1));
+	_strcpy(full_prog, prog);
 	if (stat(prog, &st) != 0)
 	{
 		if (check_in_path(full_prog) != 0)
 		{
 			free(full_prog);
-			perror("Error");
-			return (0);
+			return (-1);
 		}
 	}
 	/*Create child process and run the command in it*/
@@ -29,16 +28,15 @@ int run_prog(const char *prog, char *const args[], char *const env[])
 
 	if (pid == -1) /*fork() failed*/
 	{
-		perror("Error");
 		free(full_prog);
 		return (-1);
 	}
 	if (pid == 0) /*child process created*/
 	{
-		/*Execute the specified program*/
+
+	/*Execute the specified program*/
 		if (execve(full_prog, args, env) == -1)
 		{
-			perror("Error");
 			free(full_prog);
 			return (-1);
 		} free(full_prog);

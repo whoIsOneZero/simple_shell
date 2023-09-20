@@ -10,7 +10,7 @@ int check_in_path(char *prog)
 	char *path, *token, *full_path;
 	struct stat st;
 
-	path = strdup(_getenv("PATH"));
+	path = _strdup(_getenv("PATH"));
 	path_head = malloc(sizeof(list_t));
 	if (path != NULL)
 	{
@@ -29,12 +29,12 @@ int check_in_path(char *prog)
 	{
 		full_path = malloc(_strlen(path_head->str) + _strlen("/")
 				   + _strlen(prog) + 1);
-		strcpy(full_path, temp->str);
-		strcat(full_path, "/");
-		strcat(full_path, prog);
+		_strcpy(full_path, temp->str);
+		_strcat(full_path, "/");
+		_strcat(full_path, prog);
 		if (stat(full_path, &st) == 0)
 		{
-			strcpy(prog, full_path);
+			_strcpy(prog, full_path);
 			free(full_path);
 			free(path);
 			free(token);

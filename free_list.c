@@ -9,7 +9,7 @@ void free_list(list_t *head)
 	/*... while deallocating memory for the current one*/
 
 	/*Traverse the list until head points to null*/
-	while (head != NULL)
+	while (head)
 	{
 		temp = head->next; /*Store next node's address*/
 		free(head->str); /*Free data portion of the node*/
