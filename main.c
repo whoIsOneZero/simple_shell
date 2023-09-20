@@ -23,25 +23,23 @@ int main(int ac, char **av, char **env)
 		command = get_cmd(); /*Get command from the user*/
 		if (command == NULL || _strcmp(command, "exit") == 0)/*exited:Ctrl+D*/
 			break;
-		if (_strcmp(command, "") == 0)
-		{
-			free(command);
+		if (_strcmp(command, "Next") == 0)/*Error of Empty space*/
 			continue;
-		}
-		splitter(command, " ", tokens, MAX_TOKENS);
+	}
+	splitter(command, " ", tokens, MAX_TOKENS);
 
 
-		if (run_prog(tokens[0], tokens, env) == -1)
-		{
-			print_not_found(av[0], counter, command);
-			free(command);
-			continue;
-		}
-		 free(command);
-
+	if (run_prog(tokens[0], tokens, env) == -1)
+	{
+		print_not_found(av[0], counter, command);
+		free(command);
+		continue;
 	}
 	free(command);
-	return (0);
+
+}
+free(command);
+return (0);
 }
 
 
