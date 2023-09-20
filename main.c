@@ -22,20 +22,10 @@ int main(int ac, char **av, char **env)
 		command = get_cmd(); /*Get command from the user*/
 		if (command == NULL || _strcmp(command, "exit") == 0)/*exited:Ctrl+D*/
 			break;
-		if (_strcmp(command, "") == 0)
-		{
-			free(command);
+		if (_strcmp(command, "Next") == 0)/*Error of Empty space*/
 			continue;
-		}
-		splitter(command, " ", tokens, MAX_TOKENS);
-		/*Set last element to NULL for proper processing*/
 
-/* while (i < MAX_ARGS  -1 && tokens[i] != NULL)*/
-/* {*/
-/* argv[i] = tokens[i];*/
-/* i++;*/
-/* }*/
-/* argv[i] = NULL;*/
+		splitter(command, " ", tokens, MAX_TOKENS);
 
 		if (run_prog(tokens[0], tokens, env) == -1)
 		{
@@ -44,7 +34,7 @@ int main(int ac, char **av, char **env)
 		}
 		for (i = 0; tokens[i]; i++)
 		{
-			/**	free(tokens[i]); */
+			/*free(tokens[i]);*/
 		} free(command);
 
 	} free(command);

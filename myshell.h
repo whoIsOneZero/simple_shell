@@ -18,6 +18,7 @@ typedef struct list_s
 
 
 /*---> HEADER FILES <---*/
+#include <ctype.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -31,8 +32,8 @@ typedef struct list_s
 extern char **environ;
 
 /*---> CONSTANTS <---*/
-#define MAX_ARGS 64
-#define MAX_TOKENS 64
+#define MAX_ARGS 512
+#define MAX_TOKENS 512
 
 /*---> FUNCTION PROTOTYPES <---*/
 void write_out(const char *the_msg);
