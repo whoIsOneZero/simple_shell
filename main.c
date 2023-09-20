@@ -25,7 +25,7 @@ int main(int ac, char **av, char **env)
 			break;
 		if (_strcmp(command, "Next") == 0)/*Error of Empty space*/
 			continue;
-	}
+	
 	splitter(command, " ", tokens, MAX_TOKENS);
 
 
