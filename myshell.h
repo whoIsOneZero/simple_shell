@@ -43,8 +43,8 @@ int run_prog(char *prog, char *const args[], char *const env[]);
 int splitter(char *cmd, const char *delim, char *tokens[], int max_tokens);
 char *_getenv(const char *name);
 int check_in_path(char *prog);
-void intToString( int num, char* str);
-void print_not_found(char *av,int counter, char *command);
+void intToString(int num, char *str);
+void print_not_found(char *av, int counter, char *command);
 
 
 
