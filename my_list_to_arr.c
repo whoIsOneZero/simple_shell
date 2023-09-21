@@ -9,10 +9,11 @@
 char **my_list_to_arr(list_t *_head)
 {
 	list_t *curr_node = _head;
-	size_t index, num_nodes = list_len(_head);
+	size_t index, num_nodes;
 	char **a_str; /*The converted array of strings*/
 	char *curr_str; /*The current string*/
 
+	num_nodes = my_list_len(_head);
 	if (!_head || !num_nodes)
 		return (NULL);
 
@@ -21,7 +22,7 @@ char **my_list_to_arr(list_t *_head)
 		return (NULL);
 	for (num_nodes = 0; curr_node; curr_node = curr_node->next, num_nodes++)
 	{
-		curr_str = malloc(_strlen(curr_node->curr_str) + 1);
+		curr_str = malloc(_strlen(curr_node->str) + 1);
 		if (!curr_str)
 		{
 			for (index = 0; index < num_nodes; index++)
@@ -30,9 +31,9 @@ char **my_list_to_arr(list_t *_head)
 			return (NULL);
 		}
 
-		curr_str = _strcpy(curr_str, curr_node->curr_str);
+		curr_str = _strcpy(curr_str, curr_node->str);
 		a_str[num_nodes] = curr_str;
 	}
 	a_str[num_nodes] = NULL;
-	return (strs);
+	return (a_str);
 }
