@@ -8,4 +8,14 @@
 
 size_t my_list_len(const list_t *head)
 {
+	size_t size;
+
+	size = 0;
+
+	for (; head; head = head->next)
+	{
+		size++;
+	}
+
+	return (size);
 }
