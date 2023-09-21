@@ -127,6 +127,9 @@ char **my_list_to_strings(list_t *_head);
 list_t *my_node_starts_with(list_t *head, char *pref, char after);
 int my_is_cmd(info_t *inform, char *path);
 ssize_t my_get_node_index(list_t *head, list_t *node);
+char *my_strncpy(char *dest, char *src, int n);
+char *my_strncat(char *dest, char *src, int n);
+char *my_strchr(char *str, char c);
 
 
 /* string.h implemetation */
