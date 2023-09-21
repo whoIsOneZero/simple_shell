@@ -147,7 +147,7 @@ void *my_realloc(void *, unsigned int, unsigned int);
 
 
 /*---> Exit the shell <--*/
-char *my_strncat(char *, char *, int)
+char *my_strncat(char *, char *, int);
 char *my_strchr(char *, char);
 char *my_strncpy(char *, char *, int);
 
@@ -158,8 +158,27 @@ int my_interactive(info_t *);
 int my_is_delim(char chr, char *delim);
 int my_isalpha(int chr);
 
-
-
+char **my_list_to_arr(list_t *_head);
+int my_exit(info_t *infos);
+int my_help(info_t *infos);
+int my_cd(info_t *infos);
+int my_history(info_t *infos);
+int my_set_alias(info_t *infos, char *str);
+int my_print_alias(list_t *node);
+int my_alias(info_t *infos);
+int my_env(info_t *infos);
+char *my_getenv(info_t *infos, const char *name);
+int my_setenv(info_t *infos);
+int my_unsetenv(info_t *infos);
+int my_populate_env_list(info_t *infos);
+void my_eputs(char *str);
+int my_eputchar(char chr);
+int my_putfd(char chr, int fd);
+int my_erratoi(char *str);
+void my_print_error(info_t *infos, char *estr);
+int my_print_d(int input, int fd);
+char *my_convert_number(long int numb, int base, int flags);
+void my_remove_comments(char *buf);
 
 char **my_list_to_strings(list_t *_head);
 char *my_find_path(info_t *info, char *path, char *prog);
