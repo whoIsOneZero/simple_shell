@@ -123,19 +123,15 @@ int my_print_d(int input, int fd);
 char *my_convert_number(long int numb, int base, int flags);
 void my_remove_comments(char *buf);
 
-
-
-
-
-
-
-
+char **my_list_to_strings(list_t *_head);
+list_t *my_node_starts_with(list_t *head, char *pref, char after);
+int my_is_cmd(info_t *inform, char *path);
+ssize_t my_get_node_index(list_t *head, list_t *node);
 
 
 /* string.h implemetation */
 
-
-
-
+/*---> MEMORY MANAGEMENT <--*/
+int my_bfree(void **p);
 
 #endif /*MYSHELL_HEADER*/
