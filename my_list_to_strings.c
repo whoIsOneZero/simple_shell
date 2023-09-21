@@ -1,12 +1,12 @@
 #include "myshell.h"
 
 /**
- * my_list_to_arr - converts Linked list (string) to Array (of strings).dd
+ * my_list_to_strings - converts Linked list(string) to Array(of strings).dd
  * @_head: a pointer to the _head (node1) .dd
  * Return: Derived array of String.dd
  */
 
-char **my_list_to_arr(list_t *_head)
+char **my_list_to_strings(list_t *_head)
 {
 	list_t *curr_node = _head;
 	size_t index, num_nodes;

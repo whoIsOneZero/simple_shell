@@ -101,13 +101,15 @@ int my_interactive(info_t *);
 int my_is_delim(char chr, char *delim);
 int my_isalpha(int chr);
 
-char **my_list_to_arr(list_t *_head);
-list_t *my_node_starts(list_t *head, char *pref, char after);
+char **my_list_to_strings(list_t *_head);
+list_t *my_node_starts_with(list_t *head, char *pref, char after);
+int my_is_cmd(info_t *inform, char *path);
+ssize_t my_get_node_index(list_t *head, list_t *node);
+
 
 /* string.h implemetation */
 
-
-
-
+/*---> MEMORY MANAGEMENT <--*/
+int my_bfree(void **p);
 
 #endif /*MYSHELL_HEADER*/
