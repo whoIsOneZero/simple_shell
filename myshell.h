@@ -19,6 +19,7 @@
 
 /*---> FUNCTION PROTOTYPES <---*/
 size_t my_list_len(const list_t *head);
+char **my_list_to_arr(list_t *_head);
 
 
 /* string.h implemetation */
