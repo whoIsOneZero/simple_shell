@@ -12,7 +12,7 @@ size_t my_list_len(const list_t *head)
 
 	size = 0;
 
-	for (; head; head = head->next)
+	for (; head; head = head->next) /*Move to next node till NULL reach*/
 	{
 		size++;
 	}
