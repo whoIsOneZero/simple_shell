@@ -102,7 +102,7 @@ int my_is_delim(char chr, char *delim);
 int my_isalpha(int chr);
 
 char **my_list_to_arr(list_t *_head);
-
+list_t *my_node_starts(list_t *head, char *pref, char after)
 
 /* string.h implemetation */
 
