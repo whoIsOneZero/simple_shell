@@ -30,7 +30,7 @@ typedef struct liststr
  * @linecount_flag: checks on count
  * @fname: program filename
  * @env: environ as linked list
- * @environ: environ from LL env and modified 
+ * @environ: environ from LL env and modified
  * @history: node history
  * @alias: alias node
  * @cmd_buf_type: cmd buffer type ,OR ,AND;
@@ -101,6 +101,7 @@ int my_interactive(info_t *);
 int my_is_delim(char chr, char *delim);
 int my_isalpha(int chr);
 
+char **my_list_to_arr(list_t *_head);
 
 
 /* string.h implemetation */
