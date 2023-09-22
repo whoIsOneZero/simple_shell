@@ -1,12 +1,12 @@
 #include "myshell.h"
 
 /**
- * read_history - from file
+ * my_read_history - from file
  * @infos: check header.
  * Return: counts,otherwise 0
  */
 
-int read_history(info_t *infos)
+int my_read_history(info_t *infos)
 {
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;

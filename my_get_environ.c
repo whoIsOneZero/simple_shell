@@ -1,11 +1,11 @@
 #include "myshell.h"
 
 /**
- * get_environ - gets copy of environ
+ * my_get_environ - gets copy of environ
  * @infos: check header
  * Return: pointer to string
  */
-char **get_environ(info_t *infos)
+char **my_get_environ(info_t *infos)
 {
 	if (!infos->environ || infos->env_changed)
 	{

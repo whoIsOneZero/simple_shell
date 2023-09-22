@@ -8,7 +8,7 @@
  *  Return: 0
  */
 
-int _setenv(info_t *infos, char *var, char *value)
+int my_setenv(info_t *infos, char *var, char *value)
 {
 	char *buf = NULL;
 	char *p;

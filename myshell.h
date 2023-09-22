@@ -136,15 +136,27 @@ ssize_t my_read_buf(info_t *info, char *buf, size_t *s);
 int my_getline(info_t *infos, char **ptr, size_t *length);
 void my_sigintHandler(__attribute__((unused))int sig_num);
 int my_unsetenv(info_t *infos, char *var);
-char **get_environ(info_t *infos);
-int _setenv(info_t *infos, char *var, char *value);
+char **my_get_environ(info_t *infos);
+int my_setenv(info_t *infos, char *var, char *value);
 void my_clear_info(info_t *infos);
 void my_set_info(info_t *infos, char **av);
 void my_free_info(info_t *infos, int all);
 char *my_get_history_file(info_t *infos);
 void my_free_info(info_t *infos, int all);
 int my_write_history(info_t *infos);
-int read_history(info_t *infos);
+int my_read_history(info_t *infos);
+int my_build_history_list(info_t *infos, char *buf, int linecount);
+int my_renumber_history(info_t *infos);
+list_t *my_add_node(list_t **head, const char *str, int num);
+list_t *my_add_node_end(list_t **head, const char *str, int num);
+size_t my_print_list_str(const list_t *g);
+int my_delete_node_at_index(list_t **head, unsigned int index);
+void my_free_list(list_t **head_ptr);
+
+
+
+
+
 
 
 
