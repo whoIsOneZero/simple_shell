@@ -144,6 +144,8 @@ void my_free_info(info_t *infos, int all);
 char *my_get_history_file(info_t *infos);
 void my_free_info(info_t *infos, int all);
 int my_write_history(info_t *infos);
+int read_history(info_t *infos);
+
 
 
 
