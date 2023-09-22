@@ -1,6 +1,6 @@
 #include "myshell.h"
 /**
- * fork_cmd - fork Child pRocess and execute command. dd.
+ * my_fork_cmd - fork Child pRocess and execute command. dd.
  * @inform: structure for parameter and return . dd.
  */
 void my_fork_cmd(info_t *inform)

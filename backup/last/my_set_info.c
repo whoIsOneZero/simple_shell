@@ -2,7 +2,7 @@
 
 /**
  * my_set_info - makes info_t
- * @info: address
+ * @infos: address
  * @av: argument vector
  */
 
