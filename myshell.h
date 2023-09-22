@@ -132,6 +132,11 @@ char *my_strncat(char *dest, char *src, int n);
 char *my_strchr(char *str, char c);
 ssize_t my_input_buf(info_t *infos, char **buf, size_t *len);
 ssize_t my_get_input(info_t *infos);
+ssize_t my_read_buf(info_t *info, char *buf, size_t *s);
+int my_getline(info_t *infos, char **ptr, size_t *length);
+void my_sigintHandler(__attribute__((unused))int sig_num);
+char **get_environ(info_t *infos);
+
 
 
 /* string.h implemetation */
