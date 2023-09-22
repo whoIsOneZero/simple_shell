@@ -2,8 +2,8 @@
 
 /**
  * my_strncpy - to copy string
- * @dest:  destination 
- * @src:  source
+ * @dest:  destination. dd.
+ * @src:  source. dd.
  * @n: number of chars
  * Return: the resulted string
  */

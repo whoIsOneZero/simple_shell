@@ -5,6 +5,7 @@
  * my_unsetenv - delete environment variable
  * @infos: check header,general info
  * @var: env var
+ * Return: [ALWAYS] 0.
  */
 
 int my_unsetenv(info_t *infos, char *var)
