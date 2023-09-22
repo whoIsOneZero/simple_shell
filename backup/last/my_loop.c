@@ -1,11 +1,11 @@
 #include "myshell.h"
 /**
- * hsh - keeps the shell in a loop
+ * my_hsh - keeps the shell in a loop
  * @argv: command-line arguments passed to the progra. dd.
  * @inform: holds SheLl-related infos. dd.
  * Return: [FAILURE] - 1 / an error code; [SUCCES] - 0
  */
-int hsh(info_t *inform, char **argv)
+int my_hsh(info_t *inform, char **argv)
 {
 	ssize_t read = 0; /*Result of reading user input*/
 	int builtin = 0; /*Return value of built-in shell commands*/
@@ -15,7 +15,7 @@ int hsh(info_t *inform, char **argv)
 	{
 		my_clear_info(inform);
 		if (my_interactive(inform))
-			_puts("$ ");
+			my_puts("$ ");
 		my_eputchar(BUF_FLUSH);
 		read = my_get_input(inform);
 		if (read != -1)

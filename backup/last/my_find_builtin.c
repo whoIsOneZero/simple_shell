@@ -1,3 +1,4 @@
+#include "myshell.h"
 /**
  * my_find_builtin - search for & execute built-in commands. dd .
  * @inform: Information about e current shell state. dd.
@@ -9,14 +10,14 @@ int my_find_builtin(info_t *inform)
 {
 	int z, prog_ret = -1;
 	builtin_table builtintbl[] = {
-		{"exit", my_myexit},
-		{"env", my_myenv},
-		{"help", my_myhelp},
-		{"history", my _myhistory},
-		{"setenv", my_mysetenv},
-		{"unsetenv", my_myunsetenv},
-		{"cd", my_mycd},
-		{"alias", my_myalias},
+		{"exit", my_exit},
+		{"env", my_env},
+		{"help", my_help},
+		{"history", my_history},
+		{"setenv", _mysetenv},
+		{"unsetenv", _myunsetenv},
+		{"cd", my_cd},
+		{"alias", my_alias},
 		{NULL, NULL}
 	};
 
@@ -29,4 +30,3 @@ int my_find_builtin(info_t *inform)
 		}
 	return (prog_ret);
 }
-

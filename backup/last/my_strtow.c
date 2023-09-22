@@ -10,14 +10,14 @@
 char **my_strtow(char *s, char *delim)
 {
 	int a, b, c, m, num = 0;
-	char **s;
+	char **str;
 
 	if (s == NULL || s[0] == 0)
 		return (NULL);
 	if (!delim)
 		delim = " ";
 	for (a = 0; s[a] != '\0'; a++)
-		if (!is_delim(s[a], delim) && (is_delim(s[a + 1], delim) || !s[a + 1]))
+		if (!my_is_delim(s[a], delim) && (my_is_delim(s[a + 1], delim) || !s[a + 1]))
 			num++;
 
 	if (num == 0)
@@ -27,17 +27,24 @@ char **my_strtow(char *s, char *delim)
 		return (NULL);
 	for (a = 0, b = 0; b < num; b++)
 	{
-		while (is_delim(s[a], delim))
+		while (my_is_delim(s[a], delim))
 			a++;
 		c = 0;
-		while (!is_delim(s[a + c], delim) && s[a + c])
+		while (!my_is_delim(s[a + c], delim) && s[a + c])
 			c++;
-		s[b] = malloc((c + 1) * sizeof(char));
-		if (!s[b])
+		str[b] = malloc((c + 1) * sizeof(char));
+		if (!str[b])
 		{
 			for (c = 0; c < b; c++)
-				free(s[c]);
-			free(s);
+				free(str[c]);
+			free(str);
 			return (NULL);
 		}
 
+		for (m = 0; m < c; m++)
+			str[b][m] = s[a++];
+		str[b][m] = 0;
+	}
+	str[b] = NULL;
+	return (str);
+}

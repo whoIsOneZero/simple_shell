@@ -41,6 +41,6 @@ int main(int argc, char **argv)
 	/*Set up shell and execute functionality*/
 	my_populate_env_list(info);
 	my_read_history(info);
-	hsh(info, argv);
+	my_hsh(info, argv);
 	return (EXIT_SUCCESS);
 }

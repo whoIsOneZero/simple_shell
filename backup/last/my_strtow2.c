@@ -1,3 +1,5 @@
+#include "myshell.h"
+
 /**
  * **my_strtow2 - another that separates stringsinto words
  * @s: the string to be split
@@ -7,7 +9,7 @@
 char **my_strtow2(char *s, char delim)
 {
 	int a, b, c, m, num = 0;
-	char **s;
+	char **str;
 
 	if (s == NULL || s[0] == 0)
 		return (NULL);
@@ -17,8 +19,8 @@ char **my_strtow2(char *s, char delim)
 			num++;
 	if (num == 0)
 		return (NULL);
-	s = malloc((1 + num) * sizeof(char *));
-	if (!s)
+	str = malloc((1 + num) * sizeof(char *));
+	if (!str)
 		return (NULL);
 	for (a = 0, b = 0; b < num; b++)
 	{
@@ -27,18 +29,18 @@ char **my_strtow2(char *s, char delim)
 		c = 0;
 		while (s[a + c] != delim && s[a + c] && s[a + c] != delim)
 			c++;
-		s[b] = malloc((c + 1) * sizeof(char));
-		if (!s[b])
+		str[b] = malloc((c + 1) * sizeof(char));
+		if (!str[b])
 		{
 			for (c = 0; c < b; c++)
-				free(s[c]);
-			free(s);
+				free(str[c]);
+			free(str);
 			return (NULL);
 		}
 		for (m = 0; m < c; m++)
-			s[b][m] = s[a++];
-		s[b][m] = 0;
+			str[b][m] = s[a++];
+		str[b][m] = 0;
 	}
-	s[b] = NULL;
-	return (s);
+	str[b] = NULL;
+	return (str);
 }

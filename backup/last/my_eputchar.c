@@ -11,7 +11,7 @@ int my_eputchar(char chr)
 	static int j;
 
 
-	if (chr == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (chr == BUF_FLUSH || j >= WRITE_BUF_SIZE)
 	{
 		write(2, buf, j);
 		j = 0;

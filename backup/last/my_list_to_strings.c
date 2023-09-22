@@ -22,7 +22,7 @@ char **my_list_to_strings(list_t *_head)
 		return (NULL);
 	for (num_nodes = 0; curr_node; curr_node = curr_node->next, num_nodes++)
 	{
-		curr_str = malloc(_strlen(curr_node->str) + 1);
+		curr_str = malloc(my_strlen(curr_node->str) + 1);
 		if (!curr_str)
 		{
 			for (index = 0; index < num_nodes; index++)
@@ -31,7 +31,7 @@ char **my_list_to_strings(list_t *_head)
 			return (NULL);
 		}
 
-		curr_str = _strcpy(curr_str, curr_node->str);
+		curr_str = my_strcpy(curr_str, curr_node->str);
 		a_str[num_nodes] = curr_str;
 	}
 	a_str[num_nodes] = NULL;

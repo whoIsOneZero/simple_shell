@@ -10,7 +10,7 @@ int my_is_cmd(info_t *inform, char *path)
 {
 	struct stat st;
 
-	void(inform); /*Suppress unused parameter warning*/
+	(void)inform; /*Suppress unused parameter warning*/
 
 	if (!path || stat(path, &st)) /*If path NULL, system call fails*/
 		return (0);

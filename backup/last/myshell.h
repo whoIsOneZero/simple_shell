@@ -40,26 +40,24 @@ typedef struct liststr
  */
 typedef struct passinfo
 {
-	char **cmd_buf;
-
-	int cmd_buf_type;
-	int readfd;
-	int histcount;
-	char *fname;
-	int argc;
+	char *arg;
 	char **argv;
 	char *path;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	char *fname;
 	list_t *env;
 	list_t *history;
 	list_t *alias;
 	char **environ;
 	int env_changed;
 	int status;
-	unsigned int line_count;
-	int err_num;
-	int linecount_flag;
-
-	char *arg;
+	char **cmd_buf;
+	int cmd_buf_type;
+	int readfd;
+	int histcount;
 } info_t;
 
 #define INFO_INIT \
@@ -73,8 +71,9 @@ typedef struct passinfo
  */
 typedef struct builtin
 {
-	int (*func)(info_t *);
 	char *type;
+	int (*func)(info_t *);
+
 
 } builtin_table;
 
@@ -92,6 +91,7 @@ typedef struct builtin
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stddef.h>
 
 /*---> CONSTANTS <---*/
 extern char **environ;
@@ -169,12 +169,14 @@ int my_print_alias(list_t *node);
 int my_alias(info_t *infos);
 int my_env(info_t *infos);
 char *my_getenv(info_t *infos, const char *name);
-int my_setenv(info_t *infos);
-int my_unsetenv(info_t *infos);
+int _mysetenv(info_t *infos);
+int _myunsetenv(info_t *infos);
+
 int my_populate_env_list(info_t *infos);
 void my_eputs(char *str);
 int my_eputchar(char chr);
 int my_putfd(char chr, int fd);
+int my_putsfd(char *s, int fd);
 int my_erratoi(char *str);
 void my_print_error(info_t *infos, char *estr);
 int my_print_d(int input, int fd);
@@ -217,11 +219,13 @@ int my_delete_node_at_index(list_t **head, unsigned int index);
 void my_free_list(list_t **head_ptr);
 
 
-
-void check_chain(info_t *inf, char *buff, size_t *p, size_t h, size_t len);
+size_t my_print_list(const list_t *head);
+void my_check_chain(info_t *inf, char *buff, size_t *p, size_t h, size_t len);
+int my_is_chain(info_t *inform, char *buffer, size_t *pos);
 int my_replace_alias(info_t *inf);
 int my_replace_vars(info_t *inf);
 int my_replace_string(char **old, char *nw);
+int my_unset_alias(info_t *infos, char *str);
 
 /* string.h implemetation */
 

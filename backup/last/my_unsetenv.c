@@ -1,23 +1,33 @@
 #include "myshell.h"
 
+
 /**
  * my_unsetenv - delete environment variable
  * @infos: check header,general info
- * Return: 0
+ * @var: env var
  */
 
-
-int my_unsetenv(info_t *infos)
+int my_unsetenv(info_t *infos, char *var)
 {
-	int i;
+	list_t *node = infos->env;
+	char *p;
+	size_t i = 0;
 
-	if (infos->argc == 1)
+	if (!node || !var)
+		return (0);
+
+	while (node)
 	{
-		my_eputs("Too few arguements.\n");
-		return (1);
+		p = my_starts_with(node->str, var);
+		if (p && *p == '=')
+		{
+			infos->env_changed = my_delete_node_at_index(&(infos->env), i);
+			i = 0;
+			node = infos->env;
+			continue;
+		}
+		node = node->next;
+		i++;
 	}
-	for (i = 1; i <= infos->argc; i++)
-		my_unsetenv(infos, infos->argv[i]);
-
-	return (0);
+	return (infos->env_changed);
 }
