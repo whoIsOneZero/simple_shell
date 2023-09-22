@@ -17,6 +17,6 @@ int my_eputchar(char chr)
 		j = 0;
 	}
 	if (chr != BUF_FLUSH)
-		buf[i++] = chr;
+		buf[j++] = chr;
 	return (1);
 }

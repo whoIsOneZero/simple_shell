@@ -10,7 +10,7 @@
 char *my_find_path(info_t *info, char *path, char *prog)
 {
 	int a = 0, current = 0;
-	char *path;
+	char *pathstr;
 
 	if (!path)
 	{
@@ -27,17 +27,17 @@ char *my_find_path(info_t *info, char *path, char *prog)
 	{
 		if (!path[a] || path[a] == ':')
 		{
-			path = my_dup_chars(path, current, a);
-			if (!*path)
-				my_strcat(path, prog);
+			pathstr = my_dup_chars(path, current, a);
+			if (!*pathstr)
+				my_strcat(pathstr, prog);
 			else
 			{
-				my_strcat(path, "/");
-				my_strcat(path, prog);
+				my_strcat(pathstr, "/");
+				my_strcat(pathstr, prog);
 			}
 
-			if (my_is_cmd(info, path))
-				return (path);
+			if (my_is_cmd(info, pathstr))
+				return (pathstr);
 			if (!path[a])
 				break;
 			current = a;

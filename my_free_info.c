@@ -7,7 +7,7 @@
  */
 void my_free_info(info_t *infos, int all)
 {
-	ffree(infos->argv);
+	my_ffree(infos->argv);
 	infos->argv = NULL;
 	infos->path = NULL;
 	if (all)
