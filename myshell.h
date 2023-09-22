@@ -135,7 +135,10 @@ ssize_t my_get_input(info_t *infos);
 ssize_t my_read_buf(info_t *info, char *buf, size_t *s);
 int my_getline(info_t *infos, char **ptr, size_t *length);
 void my_sigintHandler(__attribute__((unused))int sig_num);
+int my_unsetenv(info_t *infos, char *var);
 char **get_environ(info_t *infos);
+int _setenv(info_t *infos, char *var, char *value);
+void my_clear_info(info_t *infos);
 
 
 
