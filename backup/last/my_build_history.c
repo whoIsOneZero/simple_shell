@@ -2,7 +2,7 @@
 
 /**
  * my_build_history_list - adds entry for history list
- * @info: check header
+ * @infos: check header. dd.
  * @linecount: lines cont
  * @buf: buffer
  * Return: 0

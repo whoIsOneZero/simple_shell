@@ -190,7 +190,6 @@ list_t *my_node_starts_with(list_t *head, char *pref, char after);
 int my_is_cmd(info_t *inform, char *path);
 ssize_t my_get_node_index(list_t *head, list_t *node);
 char *my_strncpy(char *dest, char *src, int n);
-char *my_strncat(char *dest, char *src, int n);
 char *my_strchr(char *str, char c);
 ssize_t my_input_buf(info_t *infos, char **buf, size_t *len);
 ssize_t my_get_input(info_t *infos);
@@ -219,14 +218,10 @@ void my_free_list(list_t **head_ptr);
 
 
 
-
-
-
-
-
-
-
-
+void check_chain(info_t *inf, char *buff, size_t *p, size_t h, size_t len);
+int my_replace_alias(info_t *inf);
+int my_replace_vars(info_t *inf);
+int my_replace_string(char **old, char *nw);
 
 /* string.h implemetation */
 

@@ -1,29 +1,18 @@
-#include "myshell.h"
-
 /**
- * my_strncat - concatenates two strings
- * @dest:  first
- * @src: second
- * @n: max number of letters
- * Return: resulted string
+ * my_strcat - to concatenate 2 strings. dd.
+ * @dest: where to concatenate to (buffer)
+ * @src: where to concatenate from (buffer).
+ * Return: a pointer to the concatenated string (buffer).
  */
-char *my_strncat(char *dest, char *src, int n)
+char *my_strcat(char *dest, char *src)
 {
-	int j, i;
-	char *temp = dest;
+	char *ret = dest;
 
-	j = 0;
-	i = 0;
-
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0' && j < n)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	if (j < n)
-		dest[i] = '\0';
-	return (temp);
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	*dest = *src;
+	return (ret);
 }
+
