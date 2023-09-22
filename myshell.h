@@ -139,6 +139,14 @@ int my_unsetenv(info_t *infos, char *var);
 char **get_environ(info_t *infos);
 int _setenv(info_t *infos, char *var, char *value);
 void my_clear_info(info_t *infos);
+void my_set_info(info_t *infos, char **av);
+void my_free_info(info_t *infos, int all);
+char *my_get_history_file(info_t *infos);
+void my_free_info(info_t *infos, int all);
+int my_write_history(info_t *infos);
+
+
+
 
 
 
