@@ -28,7 +28,7 @@ ssize_t my_input_buf(info_t *infos, char **buf, size_t *len)
 		{
 			if ((*buf)[r - 1] == '\n')
 			{
-				(*buf)[r - 1] =
+				(*buf)[r - 1] = '\0'; 
 					r--;
 			}
 			infos->linecount_flag = 1;

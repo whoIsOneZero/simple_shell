@@ -22,8 +22,8 @@ char **my_strtow(char *s, char *delim)
 
 	if (num == 0)
 		return (NULL);
-	s = malloc((1 + num) * sizeof(char *));
-	if (!s)
+	str = malloc((1 + num) * sizeof(char *));
+	if (!str)
 		return (NULL);
 	for (a = 0, b = 0; b < num; b++)
 	{
