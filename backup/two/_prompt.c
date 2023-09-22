@@ -5,5 +5,5 @@
  */
 void prompt_user(void)
 {
-	write_out("#cisfun$ ");
+	write_out("$ ");
 }

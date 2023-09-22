@@ -1,80 +1,46 @@
 #include "myshell.h"
-#define MAX_DIGITS 12
+
 /**
- * main - simple shell entery point
- * @ac: number of arguments
- * @av: an array of arguments
- * @env: an array enviroment variables
- *
- * Return: 0 (success), or [-1] (failure)
+ * main - where the program starts
+ * @argc: number of arguments passed
+ * @argv: An array of strings of arguments
+ * Return: [SUCCESS] - 0; [FAILURE] - 1
  */
-int main(int ac, char **av, char **env)
+
+int main(int argc, char **argv)
 {
-	char *command, *argv[MAX_ARGS], *tokens[MAX_TOKENS];
-	int counter;
+	info_t info[] = { INFO_INIT }; /*Initialized the field*/
+	int file_d = 2; /*File descriptor*/
 
-	(void)ac; /*Suppress "unused parameter" warning*/
-	(void)argv;
-	counter = 0;
-	while (1)
+	/*Move value of fd and add 3*/
+	asm ("mov %1, %0\n\t"
+			"add $3, %0"
+			: "=r" (file_d)
+			: "r" (file_d));
+
+	if (argc == 2) /*If an actual comman was passed afer ./hsh*/
 	{
-		counter++;
-
-		command = get_cmd(); /*Get command from the user*/
-		if (command == NULL || _strcmp(command, "exit") == 0)/*exited:Ctrl+D*/
-			break;
-		if (_strcmp(command, "Next") == 0)/*Error of Empty space*/
-			continue;
-
-	splitter(command, " ", tokens, MAX_TOKENS);
-
-
-	if (run_prog(tokens[0], tokens, env) == -1)
-	{
-		print_not_found(av[0], counter, command);
-		free(command);
-		continue;
+		file_d = open(argv[1], O_RDONLY);/*Open the prog (command)*/
+		if (file_d == -1)/*handle the error*/
+		{
+			if (errno == EACCES)
+				exit(126);
+			if (errno == ENOENT)
+			{
+				my_eputs(argv[0]);
+				my_eputs(": 0: Can't open ");
+				my_eputs(argv[1]);
+				my_eputchar('\n');
+				my_eputchar(BUF_FLUSH);
+				exit(127);
+			}
+			return (EXIT_FAILURE);
+		}
+		info->readfd = file_d;
 	}
-	free(command);
-
-}
-free(command);
-return (0);
-}
-
-
-
-
-/**
- * print_not_found - prints massage when path not found
- * @av: av[0] of main
- * @counter: counter of argumwnts passed to shell
- * @command: the command that is not found
- */
-
-
-
-void print_not_found(char *av, int counter, char *command)
-{
-
-
-	char temp[MAX_DIGITS], *error_prompt;
-
-
-
-	intToString(counter, temp);
-	error_prompt = malloc(sizeof(av) + (sizeof(" :") * 2) + sizeof(temp)
-			      + sizeof(command));
-	_strcpy(error_prompt, av);
-	_strcat(error_prompt, ": ");
-	_strcat(error_prompt, temp);
-	_strcat(error_prompt, ": ");
-	_strcat(error_prompt, command);
-	_strcat(error_prompt, ": not found\n");
-
-	write_out(error_prompt);
-	free(error_prompt);
-
-
-
+	/*Set up shell and execute functionality*/
+	my_populate_env_list(info);
+	my_read_history(info);
+	my_hsh(info, argv);
+	return (EXIT_SUCCESS);
 }
