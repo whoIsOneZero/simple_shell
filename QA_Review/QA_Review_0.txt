@@ -1,0 +1,16 @@
+0. Betty would be proud
+Commit used:
+URL: Click here
+ID: 59b84fc57d9426ac0e83fb45a17d3b4d711b01f8
+Author: octav8us
+Subject: maybe
+Date: 2023-09-20 23:48:28 +0300
+Readme present
+
+Betty coding style
+
+Score: 5 out of 5 points
+
+Betty style documentation
+
+Score: 5 out of 5 points

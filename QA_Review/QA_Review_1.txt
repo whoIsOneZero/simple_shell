@@ -1,0 +1,586 @@
+README is present and not empty
+
+Compile program
+
+Correct output - case: Execute /bin/ls
+
+Score: 0 out of 1 points
+
+Reason:
+Files: checker.bash, bin_ls.bash
+
+Full error (available only 10days) : 235_1034_19755_476549_error.txt, 235_1034_19755_476549_error.txt
+
+(command)[echo "/bin/ls" | ./hsh]
+
+[GOT]:
+(stdout)[$ add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+$ ](Length: 306)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+](Length: 302)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=en_US.UTF-8
+SHLVL=2
+LC_ALL=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env
+
+
+Correct output - case: Execute /bin/ls 4 times (surrounded by spaces)
+
+Score: 0 out of 1 points
+
+Reason:
+(command)[echo "/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     " | ./hsh]
+
+[GOT]:
+(stdout)[$ add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+$ add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+$ add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+$ add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+$ ](Length: 1246)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+add_node.c
+add_node_end.c
+allowed_functions
+AUTHORS
+backup
+bin_ls_spaces.bash
+checker.bash
+check_in_path.c
+free_list.c
+get_cmd.c
+get_env.c
+hsh
+int_to_string.c
+main.c
+myshell.h
+_prompt.c
+README.md
+run_prog.c
+shell
+splitter.c
+strcat.c
+strchr.c
+strcmp.c
+strcpy.c
+strdup.c
+strlen.c
+strncmp.c
+test_ls_2
+writeout.c
+](Length: 1236)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=en_US.UTF-8
+SHLVL=2
+LC_ALL=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env
+
+
+Correct output - case: Copy the file /bin/ls to hbtn_ls (in the current directory) and execute ./hbtn_ls /var
+
+Score: 0 out of 1 points
+
+Reason:
+-  - (command)[echo "./hbtn_ls /var" | ./hsh]
+
+[GOT]:
+(stdout)[$ backups
+cache
+lib
+local
+lock
+log
+mail
+opt
+run
+spool
+tmp
+$ ](Length: 60)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[backups
+cache
+lib
+local
+lock
+log
+mail
+opt
+run
+spool
+tmp
+](Length: 56)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=C
+SHLVL=2
+LC_ALL=C
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env
+ - (command)[echo "./hbtn_ls /var" | ./hsh]
+
+[GOT]:
+(stdout)[$ backups
+cache
+lib
+local
+lock
+log
+mail
+opt
+run
+spool
+tmp
+$ ](Length: 60)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[backups
+cache
+lib
+local
+lock
+log
+mail
+opt
+run
+spool
+tmp
+](Length: 56)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=en_US.UTF-8
+SHLVL=2
+LC_ALL=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env [Diff had to be removed because it was too long] [Diff had to be removed because it was too long]
+
+
+Correct output - case: Spaces only (small)
+
+Score: 0 out of 1 points
+
+Reason:
+
+ -  - (command)[echo "                " | ./hsh]
+
+[GOT]:
+(stdout)[$ $ ](Length: 4)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[](Length: 0)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=C
+SHLVL=2
+LC_ALL=C
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env
+ - (command)[echo "                " | ./hsh]
+
+[GOT]:
+(stdout)[$ $ ](Length: 4)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[](Length: 0)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=en_US.UTF-8
+SHLVL=2
+LC_ALL=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env [Diff had to be removed because it was too long] [Diff had to be removed because it was too long]
+
+
+Correct output - case: Spaces only (large)
+
+Score: 0 out of 1 points
+
+Reason:
+
+(command)[echo "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       " | ./hsh]
+
+[GOT]:
+(stdout)[$ $ ](Length: 4)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[](Length: 0)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=en_US.UTF-8
+SHLVL=2
+LC_ALL=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env
+
+
+Correct output - case: Spaces only (medium)
+
+Score: 0 out of 1 points
+
+Reason:
+
+(command)[echo "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               " | ./hsh]
+
+[GOT]:
+(stdout)[$ $ ](Length: 4)
+(stderr)[](Length: 0)
+(status)[0]
+
+[EXPECTED]:
+(stdout)[](Length: 0)
+(stderr)[](Length: 0)
+(status)[0]
+
+Environment:
+HOSTNAME=50868d4ba2cf
+LANGUAGE=en_US:en
+PWD=/tmp/correction/6356593925984658855233797254559375219793_5/235/476549
+TZ=America/Los_Angeles
+HOME=/root
+LANG=en_US.UTF-8
+SHLVL=2
+LC_ALL=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+OLDPWD=/
+_=/usr/bin/env
+
+
+
+
+
+
