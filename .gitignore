@@ -1,0 +1,6 @@
+# Files to be excluded
+*~
+*.swp
+*.out
+hsh
+shell
